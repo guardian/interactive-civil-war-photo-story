@@ -6,6 +6,7 @@ define([
     'rvc!templates/appTemplate',
     'rvc!templates/block_lead',
     'rvc!templates/custom/block_lead_intro',
+    'rvc!templates/custom/block_lead_intro_with_audio',
     'rvc!templates/block_photo',
     'rvc!templates/block_quote',
     'rvc!templates/block_text',
@@ -20,6 +21,7 @@ define([
     AppTemplate,
     blockLeadTemplate,
     blockLeadIntroTemplate,
+    blockLeadIntroWithAudioTemplate,
     blockPhotoTemplate,
     blockQuoteTemplate,
     blockTextTemplate,
@@ -90,10 +92,15 @@ define([
 
     function render(blocks, config){
 
+        // blocks.forEach(function(b){
+
+        //     console.log(b);
+        // });
+
         var data = {
             blocks: blocks,
             config: {},
-            shareMessage: "Voter's voices"
+            shareMessage: "Before & After: the American Civil War"
         }
         //convert array of params into a single config object
         config.forEach(function(d){
@@ -119,6 +126,7 @@ define([
             components: {
                 leadBlock: blockLeadIntroTemplate, // SET TO TEST INTRO STYLES 
                 leadIntroBlock: blockLeadIntroTemplate,
+                leadIntroWithAudioBlock: blockLeadIntroWithAudioTemplate,
                 photoBlock: blockPhotoTemplate,
                 quoteBlock: blockQuoteTemplate,
                 textBlock: blockTextTemplate,

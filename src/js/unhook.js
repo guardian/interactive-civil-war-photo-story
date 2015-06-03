@@ -69,7 +69,6 @@ function Unhook(settings){
 			var curWin = this,
 				containers = document.querySelectorAll("." + options.containerClass);
 
-			window.dContainer = containers[0];
 			[].forEach.call(containers, function(container, i){
 				for (var i = 0; i < container.childNodes.length; i++) {
 					if ( container.childNodes[i].className && Boolean(container.childNodes[i].className.match(options.targetClass)) ) {
@@ -78,7 +77,7 @@ function Unhook(settings){
 							scrollTop = curWin.pageYOffset || document.documentElement.scrollTop,
 							containerRect = container.getBoundingClientRect(),
 							contextTop = scrollTop - containerRect.top,
-							containerTop = curWin.innerHeight - containerRect.top,
+							containerTop = curWin.innerHeight - containerRect.top - 100,
 							containerBottom = containerTop + container.clientHeight,
 							pastTopOfContainer = Boolean(contextTop + options.paddingTop >= containerTop),
 							atBottomOfContainer = Boolean(contextTop >= containerBottom - options.paddingTop - targetHeight),
@@ -86,6 +85,10 @@ function Unhook(settings){
 
 
 						if (pastTopOfContainer) {
+							// console.log("contextTop: " + contextTop);
+							// console.log("options.paddingTop: " + options.paddingTop);
+							// console.log("containerTop: " + containerTop);
+							// console.log("-------------");
 							setFixed("fromTop", target, options.scrollClass);
 						}
 						if (atBottomOfContainer) {

@@ -10,18 +10,35 @@ var beforeAfter = {
 
     init: function () {
         var self = this;
-        var s = skrollr.init();
+        
+        self.setScroll();
+
         var imgBlock = document.getElementById("p1");
-        var skrolls = document.querySelectorAll(".skrollable");
+        var skrolls = document.querySelectorAll(".guLazyLoad");
 
-        [].forEach.call(skrolls, function(skroll, i){
-            var btnWrap = document.createElement("div");
+        self.makeButtons(skrolls);
+
+        var h = new Unhook();
+    },
+
+    setScroll: function(){
+        skrollr.init();
+        // setTimeout(function() {
+        //     skrollr.get().refresh();
+        // }, 5000);
+        skrollr.get().relativeToAbsolute(document.getElementById("photoBlocks"));
+    },
+
+    makeButtons: function(blocks){
+        var self = this;
+        [].forEach.call(blocks, function(skroll, i){
+            var btnWrap = document.createElement("div"),
+                btnWrapInner = document.createElement("div"),
+                btn = document.createElement("button");
+
             btnWrap.className = "uh-element toggle-button-wrap";
-
-            var btnWrapInner = document.createElement("div");
             btnWrapInner.className = "toggle-button-wrap_inner";
 
-            var btn = document.createElement("button");
             btn.setAttribute("id", "toggle-button-"+i);
             btn.className = "toggle-button";
             btn.innerHTML = "Then/Now";
@@ -32,8 +49,6 @@ var beforeAfter = {
 
             self.setToggle(btn);
         });
-
-        var h = new Unhook({topOfPage: 0 });
     },
 
     setToggle: function (el) {
@@ -48,8 +63,8 @@ var beforeAfter = {
     toggleTime: function (el) {
         var trigger = el.target,
             photo = trigger.parentNode.parentNode.previousSibling,
-            addPhotoClass = (!photo.className.match("show")) ? "show" : "hide",
-            removePhotoClass = (!photo.className.match("hide")) ? "show" : "hide",
+            addPhotoClass = (!photo.className.match("btn-show")) ? "btn-show" : "btn-hide",
+            removePhotoClass = (!photo.className.match("btn-hide")) ? "btn-show" : "btn-hide",
             reg = new RegExp(removePhotoClass, "g");
 
         photo.className = photo.className.replace(reg, "");

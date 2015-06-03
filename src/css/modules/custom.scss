@@ -1,6 +1,28 @@
 /*********************************
-	CUSTOM: CIVIL WAR ANNIVERSARY
+*	CUSTOM: CIVIL WAR ANNIVERSARY
 *********************************/
+
+
+.gu-block.block-title {
+	padding-bottom: 24px;
+	border-bottom: 1px solid #dedede;
+}
+
+
+.guInteractive#voter-voices .block-title h2 {
+	color: #767676;
+	font-size: 26px;
+}
+
+.guInteractive#voter-voices .block-title ul li {
+	font-size: 18px;
+	line-height: 26px;
+}
+
+
+.guInteractive#voter-voices .title-text-block .shareButtons {
+	display: none;
+}
 
 .guInteractive .block-lead.intro .lead-text-container .lead-text-block.push-2,
 .guInteractive .block-lead.intro .lead-text-container .lead-text-block.push-3,
@@ -18,20 +40,53 @@
 	position: relative;
 }
 
+
+
+
+/**********************
+*
+*	Block 
+*
+***********************/
+
+
+.guInteractive#voter-voices #p1 {
+	margin-top: 60px;
+}
+
+
+
+
+/**********************
+*
+*	Block header 
+*
+***********************/
+
+
 .guInteractive#voter-voices .block-lead.intro h1 span {
 	color: #000;
 	font-size: 28px;
 	font-weight: 700;
 }
 .guInteractive#voter-voices .block-lead.intro h1 {
-	color: #999 !important;
+	color: #999;
 	font-size: 22px;
 	font-weight: 100;
 }
 
 .block-lead.intro h2 {
-	color: #999 !important;
+	color: #999;
 }
+
+
+
+/**********************
+*
+*	Block quote 
+*
+***********************/
+
 
 .guInteractive .quote-container quote,
 .guInteractive .quote-container .quote-credit {
@@ -43,34 +98,72 @@
 	margin-bottom: 0;
 }
 
+.guInteractive .quote-container quote {
+	text-indent: -9px;
+}
+
 .guInteractive .quote-container .quote-credit {
 	color: #3fa5f1;
 	margin-top: 0;
 }
+
+
+
+/**********************
+*
+*	Block text 
+*
+***********************/
+
 
 .guInteractive .block-text h4 {
 	font-size: 20px;
 	margin-bottom: 24px;
 }
 
-#p1 .lead-photo-container {
+.guInteractive .block-text:after {
+  border-bottom: 1px solid #767676;
+  padding-top: 4em;
+  width: 12em;
+}
+
+
+
+/**********************
+*
+*	Block photo
+*
+***********************/
+
+
+#p1 .lead-photo-container,
+#p5 .lead-photo-container {
 	background-image: url(http://media.guim.co.uk/619be45262bc928a6fc2e3025ae62641f8baa96d/0_0_3543_2126/2000.jpg);
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
 }
 
-#p1 .lead-photo-container .skrollable.show {
+.lead-photo-container .btn-show {
 	opacity: 1 !important;
 	-webkit-transition: opacity 0.4s ease-in-out;
 	transition: opacity 0.4s ease-in-out;
 }
 
-#p1 .lead-photo-container .skrollable.hide {
+.lead-photo-container .btn-hide {
 	opacity: 0 !important;
 	-webkit-transition: opacity 0.4s ease-in-out;
 	transition: opacity 0.4s ease-in-out;
 }
+
+
+
+/**********************
+*
+*	Toggle buttons   
+*
+***********************/
+
 
 .toggle-button-wrap {
 	position: absolute;
@@ -91,6 +184,10 @@
 
 .uh-element.uh-scrollable .toggle-button-wrap_inner {
 	width: 96%;
+}
+
+.uh-element.uh-scrollable {
+
 }
 
 .toggle-button {
