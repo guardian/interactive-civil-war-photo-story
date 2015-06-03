@@ -4,6 +4,12 @@ define([
 	beforeAfter
 ) {
 
-	// set up the before/after effects 
-	return beforeAfter;
+	var custom = {
+		init: function(){
+			// all any custom init functions here  
+			beforeAfter.init();
+		}
+	};
+
+	return custom;
 });
