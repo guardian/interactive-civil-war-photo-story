@@ -2,10 +2,10 @@ define([
     'get',
     'tabletop',
     'imageQueue',
-    'beforeAfter',
+    'custom',
     'rvc!templates/appTemplate',
     'rvc!templates/block_lead',
-    'rvc!templates/block_lead_intro',
+    'rvc!templates/custom/block_lead_intro',
     'rvc!templates/block_photo',
     'rvc!templates/block_quote',
     'rvc!templates/block_text',
@@ -16,7 +16,7 @@ define([
     get,
     Tabletop,
     imageQueue,
-    beforeAfter,
+    custom,
     AppTemplate,
     blockLeadTemplate,
     blockLeadIntroTemplate,
@@ -148,8 +148,8 @@ define([
             footer.setAttribute('style','display:block;');
         }
 
-        // set up the before/after effects 
-        beforeAfter.init();
+        // run any/all custom code  
+        custom.init();
     }
 
     return {
