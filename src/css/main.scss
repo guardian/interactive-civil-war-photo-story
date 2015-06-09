@@ -12,6 +12,8 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 @import 'modules/grid';
 @import 'modules/custom';
 @import 'modules/fonts';
+$mainYellow: #FFBB00;
+
 figure.element{
 	margin:0;
 }
@@ -67,19 +69,19 @@ figure.element{
     	h1{
     		margin-bottom:0;
     		margin-top:1em;
-    		font-size:32px;
+    		font-size:24px;
     		line-height:1em;
     	}
     	h2{
     		font-size:18px;
     		font-weight:normal;
     		line-height:1.2em;
-    		margin-top:0.6em;
+    		margin-top:1em;
     		margin-bottom:15px;
     	}
     }
     .lead-photo{
-    	margin:0 -20px;
+    	margin:0 -10px;
     	position: relative;
     	z-index:2;
     }
@@ -148,7 +150,7 @@ figure.element{
     	p{
     		margin:0.5em 0 0;
     		font-size:16px;
-    		line-height:1.2em;
+    		line-height:1.3em;
     	}
     	&:after{
     		clear:both;

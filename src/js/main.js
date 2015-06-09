@@ -159,6 +159,7 @@ define([
                 }
             }
         });
+    
 
         var footer = document.querySelector('.l-footer');
         if(footer){
@@ -174,9 +175,9 @@ define([
                 var ractiveId = fadeBlocksEl[i].getAttribute('id').replace('p','');
                 var ractiveObject = base.get('blocks[' + ractiveId + ']');
                 
-                if(elOffset < (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "new"){
+                if(elOffset < (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "new" && !ractiveObject.toggleClicked){
                     base.set('blocks[' + ractiveId + '].fadeState',"old");
-                }else if(elOffset > (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "old"){
+                }else if(elOffset > (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "old" && !ractiveObject.toggleClicked){
                     base.set('blocks[' + ractiveId + '].fadeState',"new");
                 };
             }

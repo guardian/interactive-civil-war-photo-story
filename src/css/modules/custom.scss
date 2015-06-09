@@ -1,3 +1,4 @@
+$mainYellow: #ffbb00;
 /*********************************
 *	CUSTOM: CIVIL WAR ANNIVERSARY
 *********************************/
@@ -66,17 +67,52 @@
 
 
 .guInteractive#civil-war .block-lead.intro h1 span {
-	font-size: 28px;
+	font-size: 24px;
 	font-weight: 700;
 }
 .guInteractive#civil-war .block-lead.intro h1 {
-	color: #999;
-	font-size: 22px;
+	color: #dcdcdc;
+	font-size: 16px;
 	font-weight: 100;
 }
 
 .block-lead.intro h2 {
 	color: #999;
+}
+
+.fadeToggle{
+	position: absolute;
+	right:0;
+	top:0;
+	button{
+		height:30px;
+		width:50px;
+		border-radius:30px;
+		background:#575757;
+		border:none;
+		position: relative;
+		span{
+			height:100%;
+			width:30px;
+			position: absolute;
+			left:0;
+			background:$mainYellow;
+			top:0;
+			display:block;
+			border-radius:30px;
+			transition:left 0.5s;
+		}
+		&.fadestate-old{
+			span{
+				left:0;
+			}
+		}
+		&.fadestate-new{
+			span{
+				left:20px;
+			}
+		}
+	}
 }
 
 
@@ -92,9 +128,9 @@
 .guInteractive .quote-container .quote-credit {
 	color: #767676;
 	font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
-	font-size: 36px;
+	font-size: 24px;
 	font-weight: 200;
-	line-height: 44px;
+	line-height: 1.25em;
 	margin-bottom: 0;
 }
 
@@ -103,7 +139,7 @@
 }
 
 .guInteractive .quote-container .quote-credit {
-	color: #3fa5f1;
+	color: $mainYellow;
 	margin-top: 0;
 }
 
@@ -117,7 +153,7 @@
 
 
 .guInteractive .block-text h4 {
-	font-size: 20px;
+	font-size: 18px;
 	margin-bottom: 24px;
 }
 
@@ -314,10 +350,11 @@
 		}
 	}
 	h1{
+		margin-right:50px;
 		span{
 			font-size:20px;
 			display:block;
-			line-height: 1.5em;
+			line-height: 1.2em;
 		}
 	}
 	.shareButtons button{
@@ -342,8 +379,8 @@
 			max-width:none;
 		}
 		.lead-photo{
-			margin-left:-10px;
-			margin-right:-10px;
+			margin-left:0;
+			margin-right:0;
 		}
 		.block-lead h1{
 			font-size:78px;
@@ -365,7 +402,7 @@
 		$i: 8;
         @while $i > 0 {
             .text-col-#{$i},.col-#{$i} {
-                padding: 0 5px;
+                padding: 0;
                 width: auto;
             }
             .push-#{$i} {
