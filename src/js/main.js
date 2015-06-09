@@ -3,6 +3,7 @@ define([
     'tabletop',
     'imageQueue',
     'custom',
+    'throttle',
     'rvc!templates/appTemplate',
     'rvc!templates/block_lead',
     'rvc!templates/custom/block_lead_intro',
@@ -18,6 +19,7 @@ define([
     Tabletop,
     imageQueue,
     custom,
+    throttle,
     AppTemplate,
     blockLeadTemplate,
     blockLeadIntroTemplate,
@@ -33,6 +35,7 @@ define([
     var dom;
     var base;
     var liveLoad = false;
+    var fadeBlocks,fadeBlocksEl;
 
     function parseUrl(el){
         
@@ -91,17 +94,13 @@ define([
     }
 
     function render(blocks, config){
-
-        // blocks.forEach(function(b){
-
-        //     console.log(b);
-        // });
-
         var data = {
-            blocks: blocks,
+            blocks: blocks.map(function(block){block.fadeState = ""; return block;}),
             config: {},
-            shareMessage: "Before & After: the American Civil War"
+            shareMessage: "Before & After: the American Civil War",
+            scrollPosition: 0
         }
+        console.log(data);
         //convert array of params into a single config object
         config.forEach(function(d){
 
@@ -147,6 +146,16 @@ define([
                     return {
                         teardown: function () {}
                     }
+                },
+                photofade: function(node,options){
+                    var blocks = this.get('blocks');
+                    blocks[options.id].fadeState = "new";
+
+                    this.set('blocks',blocks);
+
+                    return {
+                        teardown: function() {}
+                    }
                 }
             }
         });
@@ -156,8 +165,37 @@ define([
             footer.setAttribute('style','display:block;');
         }
 
+        var throttledFunction = throttle(function(){
+            var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+            for(var i=0; i<fadeBlocksEl.length;i++){
+                var elOffset = fadeBlocksEl[i].getBoundingClientRect().top;
+                var elHeight = fadeBlocksEl[i].querySelector('.lead-photo').getBoundingClientRect().height;
+                var windowHeight = window.innerHeight;
+                var ractiveId = fadeBlocksEl[i].getAttribute('id').replace('p','');
+                var ractiveObject = base.get('blocks[' + ractiveId + ']');
+                
+                if(elOffset < (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "new"){
+                    base.set('blocks[' + ractiveId + '].fadeState',"old");
+                }else if(elOffset > (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "old"){
+                    base.set('blocks[' + ractiveId + '].fadeState',"new");
+                };
+            }
+        },{delay:500})
+
+        function faderInit(){
+            fadeBlocks = base.get('blocks');
+            fadeBlocksEl = document.querySelectorAll('.block-lead.intro');
+
+            window.onscroll = function(){
+                throttledFunction();
+            }
+            
+        }
+
+        faderInit();
+
         // run any/all custom code  
-        custom.init();
+        // custom.init();
     }
 
     return {

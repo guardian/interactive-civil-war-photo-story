@@ -1,7 +1,19 @@
 {{#if i !== 0}}
 <div class="clearboth"></div>
 {{/if}}
-<div class="gu-block block-lead intro {{#if i === 0}}story-lead{{/if}}" id="p{{i}}">
+
+<div class="gu-block block-lead intro {{#if i === 0}}story-lead{{/if}} state-{{fadeState}}" id="p{{i}}" decorator="photofade:{id:{{i}}}">
+	<div class="lead-photo">
+		<div class="lead-banding" style="{{#if bandcolor}}background-color:{{bandcolor}}{{/if}}"></div>
+		<div class="lead-photo-container" style="position:relative; z-index:2;">
+			<div class="fadeImageContainer {{#if fadeState === 'old'}}intro-hide{{/if}}">
+				<div class='guLazyLoad ' decorator='lazyload:{src:{{url.split(",")[0]}},imgSizes:{{config[ photoshape + "_sizes" ]}} }'></div>
+			</div>
+			<div class="fadeImageContainer {{#if fadeState === 'new'}}intro-hide{{/if}}">
+				<div class='guLazyLoad' decorator='lazyload:{src:{{url.split(",")[1]}},imgSizes:{{config[ photoshape + "_sizes" ]}} }'></div>
+			</div>
+		</div>
+	</div>
 	<div class="lead-text-container position-{{leadtextposition}}">
 		<div class="lead-text-position">
 			<div class="lead-text-bar">
@@ -13,11 +25,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="lead-photo">
-		<div class="lead-banding" style="{{#if bandcolor}}background-color:{{bandcolor}}{{/if}}"></div>
-		<div class="lead-photo-container uh-container" style="position:relative; z-index:2;">
-			<div data-bottom-top="opacity:1;" data-top-bottom="opacity:0;" class='guLazyLoad show' decorator='lazyload:{src:{{url}},imgSizes:{{config[ photoshape + "_sizes" ]}} }'></div>
-		</div>
-	</div>
+	
 	<div class="lead-divider"></div>
 </div>

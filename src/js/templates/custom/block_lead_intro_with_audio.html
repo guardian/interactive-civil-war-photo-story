@@ -2,17 +2,18 @@
 <div class="clearboth"></div>
 {{/if}}
 <div class="gu-block block-lead intro {{#if i === 0}}story-lead{{/if}}" id="p{{i}}">
+	<div class="lead-photo">
+		<div class="lead-banding" style="{{#if bandcolor}}background-color:{{bandcolor}}{{/if}}"></div>
+		<div class="lead-photo-container uh-container" style="position:relative; z-index:2;">
+			<div data-400="opacity:1;" data-1000="opacity:0;" class='guLazyLoad show' decorator='lazyload:{src:{{url}},imgSizes:{{config[ photoshape + "_sizes" ]}} }'></div>
+		</div>
+	</div>
 	<div class="lead-text-container position-{{leadtextposition}}">
 		<div class="lead-text-position">
 			<div class="lead-text-bar">
 				<div class="lead-text-block text-col-{{size}} push-{{offset}}" style="{{customstyle}} {{#if textcolor}}color: {{textcolor}}{{elseif config.headline_colour != ''}}color: #{{config.headline_colour}};{{/if}}">
 					<h1>{{{primarytext}}}</h1>
 					<h2>{{{secondarytext}}}</h2>
-
-
-
-
-
 					<div class="gu-block block-audio col-{{size}} push-{{offset}}">
 						<div class='podcastPlayer'>
 							<audio >
@@ -37,34 +38,15 @@
 										</svg>
 
 										{{#duration != 0}}<div class='guTimer f-textSans'>{{calcTimeRemaining}}</div>{{/duration}}
-									
 									</div>
-								
-								
 								</div>
-
-
 							</div>
 							<!-- {{/canPlay}} -->
 						</div>
 					</div>
-
-
-
-
-
-
-
-
-					<shareContainer media="['twitter','facebook','mail']" photo="{{i}}"/>
+					<!-- <shareContainer media="['twitter','facebook','mail']" photo="{{i}}"/> -->
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="lead-photo">
-		<div class="lead-banding" style="{{#if bandcolor}}background-color:{{bandcolor}}{{/if}}"></div>
-		<div class="lead-photo-container uh-container" style="position:relative; z-index:2;">
-			<div data-400="opacity:1;" data-1000="opacity:0;" class='guLazyLoad show' decorator='lazyload:{src:{{url}},imgSizes:{{config[ photoshape + "_sizes" ]}} }'></div>
 		</div>
 	</div>
 	<div class="lead-divider"></div>

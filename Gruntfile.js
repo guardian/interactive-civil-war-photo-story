@@ -98,7 +98,7 @@ module.exports = function(grunt) {
           'src/**/*.js',
           'src/boot.js',
           'src/**/*.json',
-          'src/js/templates/*.html'
+          'src/js/templates/**/*.html'
         ],
         tasks: ['jshint', 'requirejs'],
         options: {

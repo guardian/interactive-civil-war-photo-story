@@ -10,15 +10,47 @@ var beforeAfter = {
 
     init: function () {
         var self = this;
-        
         self.setScroll();
 
-        var imgBlock = document.getElementById("p1");
-        var skrolls = document.querySelectorAll(".guLazyLoad");
+        var faderBlocks = document.querySelectorAll(".uh-container");
+        self.faderInit()
 
-        self.makeButtons(skrolls);
+        // var imgBlock = document.getElementById("p1");
+        // var skrolls = document.querySelectorAll(".guLazyLoad");
 
-        var h = new Unhook();
+        // self.makeButtons(skrolls);
+
+        // var h = new Unhook();
+    },
+
+    faderInit: function(){
+        var faderBlocks = document.querySelectorAll(".uh-container");
+        var faderPositions = [];
+        for(var i = 0;i<faderBlocks.length; i++){
+            faderPositions[i] = "new"
+        }
+
+        var windowHeight = window.innerHeight;
+        window.onscroll = function(){
+            for(var i = 0;i<faderBlocks.length; i++){
+                console.log(base);
+                var faderBlock = faderBlocks[i];
+                var faderBlockOffset = faderBlock.getBoundingClientRect().top;
+                var faderBlockHeight = faderBlock.getBoundingClientRect().height;
+                
+                if(faderBlockOffset < (windowHeight/2) - (faderBlockHeight/2)){
+                    if(faderPositions[i] === "new"){
+                        console.log('hey');
+                        faderPositions[i] = "old";
+                    }       
+                }else{
+                    if(faderPositions[i] === "old"){
+                        console.log('doei')
+                        faderPositions[i] = "new";
+                    }
+                }
+            }
+        }
     },
 
     setScroll: function(){

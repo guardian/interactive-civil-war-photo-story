@@ -1,26 +1,27 @@
 /*********************************
 *	CUSTOM: CIVIL WAR ANNIVERSARY
 *********************************/
-
+.article__header{
+	display:none;
+}
 
 .gu-block.block-title {
 	padding-bottom: 24px;
-	border-bottom: 1px solid #dedede;
 }
 
 
-.guInteractive#voter-voices .block-title h2 {
+.guInteractive#civil-war .block-title h2 {
 	color: #767676;
 	font-size: 26px;
 }
 
-.guInteractive#voter-voices .block-title ul li {
+.guInteractive#civil-war .block-title ul li {
 	font-size: 18px;
 	line-height: 26px;
 }
 
 
-.guInteractive#voter-voices .title-text-block .shareButtons {
+.guInteractive#civil-war .title-text-block .shareButtons {
 	display: none;
 }
 
@@ -50,7 +51,7 @@
 ***********************/
 
 
-.guInteractive#voter-voices #p1 {
+.guInteractive#civil-war #p1 {
 	margin-top: 60px;
 }
 
@@ -64,12 +65,11 @@
 ***********************/
 
 
-.guInteractive#voter-voices .block-lead.intro h1 span {
-	color: #000;
+.guInteractive#civil-war .block-lead.intro h1 span {
 	font-size: 28px;
 	font-weight: 700;
 }
-.guInteractive#voter-voices .block-lead.intro h1 {
+.guInteractive#civil-war .block-lead.intro h1 {
 	color: #999;
 	font-size: 22px;
 	font-weight: 100;
@@ -134,11 +134,25 @@
 *	Block photo
 *
 ***********************/
+.lead-photo-container{
+	.fadeImageContainer{
+		transition: opacity 1s ease-in;
 
+		&.intro-hide{
+			opacity:0;
+		}
+
+		&:first-child{
+			position: absolute;
+			width:100%;
+			top:0;
+		}
+	}
+}
 
 #p1 .lead-photo-container,
 #p5 .lead-photo-container {
-	background-image: url(http://media.guim.co.uk/619be45262bc928a6fc2e3025ae62641f8baa96d/0_0_3543_2126/2000.jpg);
+	// background-image: url(http://media.guim.co.uk/619be45262bc928a6fc2e3025ae62641f8baa96d/0_0_3543_2126/2000.jpg);
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
@@ -231,4 +245,134 @@
 	-webkit-transition-duration: 0.4s;
 	-webkit-transition: background 0.4s ease-in-out;
 	transition: background 0.4s ease-in-out;
+}
+
+
+
+
+
+// TAKEN FROM Voter voicess
+.guInteractive#civil-war{
+	#p1{
+		margin-top:30px;
+	}
+	.title-text-block{
+        max-width:620px;
+        padding-top:1px !important;
+        margin-top:40px;
+        h1{
+        	line-height: 1em;
+            font-size:32px;
+            margin-bottom:0.2em;
+        }
+        .shareButtons{
+        	margin-top:10px;
+        	padding-top:5px;
+        	display:inline-block;
+        }
+    }
+	.block-title{
+		padding-top:1px;
+		h2{
+			font-weight:normal;
+			font-size:18px;
+			line-height:1.25em;
+			color:#DCDCDC;
+		}
+		ul{
+			margin:20px 0 0;
+			padding-left:0px;
+			li{
+				list-style:none;
+				padding-left:20px;
+				position: relative;
+			}
+			li:before{
+				display: inline-block;
+				position: absolute;
+				left:0;
+				top:5px;
+				  content: '';
+				  -webkit-border-radius: 10px;
+				  border-radius: 10px;
+				  height: 12px;
+				  width: 12px;
+				  margin-right: 0.25rem;
+				  background-color: #bdbdbd;
+			}
+			a{
+				color:#fff;
+				text-decoration: none;
+				border-bottom:1px solid #dfdfdf;
+				padding-bottom:2px;
+				transition:0.5s border-color;
+				&:hover{
+					color:#ccc;
+					border-color:#ccc;
+				}
+			}
+		}
+	}
+	h1{
+		span{
+			font-size:20px;
+			display:block;
+			line-height: 1.5em;
+		}
+	}
+	.shareButtons button{
+		background-color:rgba(0,0,0,0.5);
+		&:hover{
+			background-color:rgba(0,0,0,1);
+		}
+	}
+	@media(min-width:740px){
+		#photoBlocks{
+			max-width:560px;
+			margin:0 auto;
+		}
+		.lead-photo{
+			margin-left:-90px;
+			margin-right:-90px;
+		}
+		
+	}
+	@media(min-width:980px){
+		#photoBlocks{
+			max-width:none;
+		}
+		.lead-photo{
+			margin-left:-10px;
+			margin-right:-10px;
+		}
+		.block-lead h1{
+			font-size:78px;
+		}
+	}
+	@media(max-width:979px){
+        .lead-text-block{
+            margin-left:0;
+        }
+        .block-lead{
+            h1{
+                color:#333;
+                text-shadow:none;
+            }
+        }
+        .lead-divider{
+            background:rgba(0,0,0,0.2)
+        }
+		$i: 8;
+        @while $i > 0 {
+            .text-col-#{$i},.col-#{$i} {
+                padding: 0 5px;
+                width: auto;
+            }
+            .push-#{$i} {
+                margin-left: 0;
+            }
+
+          $i: $i - 1;
+        }
+    }
 }
