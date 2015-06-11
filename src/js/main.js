@@ -68,23 +68,20 @@ define([
         dom = el;
        // console.log(el, context, config, mediator);
         var params = parseUrl(el);
-        if(params.key){
-            loadData(params);
-        } else {
-            console.log('Please enter a key in the alt text of the embed or as a param on the url in the format "key="" ')
-        }
+        loadData();
     }
 
     function loadData(params){
+        var key = "1r7dnLeNi9RhDQeB5VWqvskSw4GK7FkO1nUV1rX8XWjM";
         if(!liveLoad){
-            get('http://interactive.guim.co.uk/spreadsheetdata/'+params.key+'.json')
+            get('http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json')
                 .then(JSON.parse)
                 .then(function(json){
                     render(json.sheets.blocks, json.sheets.config)
                 });
         } else {
             Tabletop.init({ 
-                key: params.key,
+                key: key,
                 callback: function(data, tabletop) { 
                     render(data.blocks.elements, data.config.elements)
                 }

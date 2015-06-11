@@ -47,14 +47,86 @@ figure.element{
     }
 
 
+
+
+    /**********************
+    *
+    *   Block title
+    *
+    ***********************/
+
+    .title-text-block{
+        max-width:620px;
+        padding-top:1px !important;
+        h1{
+            line-height: 1em;
+            font-size:32px;
+            margin-bottom:0.2em;
+            margin-top:1em;
+        }
+        .shareButtons{
+            margin-top:10px;
+            padding-top:5px;
+            display:inline-block;
+        }
+    }
+    .block-title{
+        padding-top:1px;
+        h2{
+            font-weight:normal;
+            font-size:18px;
+            line-height:1.25em;
+            color:#DCDCDC;
+        }
+        ul{
+            margin:20px 0 0;
+            padding-left:0px;
+            li{
+                list-style:none;
+                padding-left:20px;
+                position: relative;
+            }
+            li:before{
+                display: inline-block;
+                position: absolute;
+                left:0;
+                top:5px;
+                  content: '';
+                  -webkit-border-radius: 10px;
+                  border-radius: 10px;
+                  height: 12px;
+                  width: 12px;
+                  margin-right: 0.25rem;
+                  background-color: #bdbdbd;
+            }
+            a{
+                color:#fff;
+                text-decoration: none;
+                border-bottom:1px solid #dfdfdf;
+                padding-bottom:2px;
+                transition:0.5s border-color;
+                &:hover{
+                    color:#ccc;
+                    border-color:#ccc;
+                }
+            }
+        }
+    }
+
+
     
     
-    // LEAD BLOCK
+    /**********************
+    *
+    *   Block lead
+    *
+    ***********************/
+
     .block-lead{
     	position: relative;
     	margin-bottom:30px;
         clear:both;
-        margin-top:140px;
+        margin-top:70px;
         &.story-lead{
             margin-top:0;
         }
@@ -101,9 +173,15 @@ figure.element{
 
 
 
-    // PHOTO BLOCK
+    /**********************
+    *
+    *   Block photo
+    *
+    ***********************/
+
     .block-photo, .block-audio{
     	margin:0 0 50px;
+        position: relative;
     }
     .photo-caption{
     	p{
@@ -119,6 +197,12 @@ figure.element{
 
 
 
+    /**********************
+    *
+    *   Block quote
+    *
+    ***********************/
+
     .block-quote{
    
     	&:after{
@@ -128,7 +212,15 @@ figure.element{
     	}
     }
     .quote-container{
-    	margin:10px 0 50px;
+    	margin:10px 70px 50px 0;
+        &:before{
+            width:70px;
+            height:1px;
+            background:rgba(255,255,255,0.4);
+            display:block;
+            content:'';
+            margin-bottom:10px;
+        }
     	quote{
     		font-size:22px;
     		line-height:1.2em;
@@ -181,9 +273,18 @@ figure.element{
     	}
     }
     @media(min-width:660px){
-    	.block-lead{
+        .title-text-block{
+            h1{
+                font-size:52px;
+                margin-top:1.5em
+            }
+            h2{
+                font-size:20px;
+            }
+        }
+    	.block-lead-intro{
     		h1{
-    			font-size:42px;
+    			font-size:38px;
     		}
     	}
     	.quote-container{
@@ -196,53 +297,14 @@ figure.element{
     		margin-bottom:70px;
     	}
     	.block-text{
-	    	h4{
-	    		font-size:32px;
-	    	}
-	    	p{
-	    		font-size:20px;
+	    	h4,p{
+	    		font-size:18px;
 	    	}
 	    }
     }
 
     @media(min-width:740px){
-        .block-photo, .block-quote, .block-audio,.block-text {
-            float: left;
-        }
-    	.lead-photo{
-    		margin:0 -10px;
-    	}
-    	#photoBlocks{
-    		padding:0;
-    	}
-
         
-
-    	$i: 4;
-        @while $i > 0 {
-            
-            .text-col-#{$i*2},.col-#{$i*2} {
-                padding: 0 5px;
-                width: 90px * ($i *2);
-            }
-            .push-#{$i*2} {
-                margin-left: 90px * ($i *2);
-            }
-
-            .text-col-#{($i*2)-1},.col-#{($i*2)-1} {
-                padding: 0 5px;
-                width: 90px * ($i *2);
-            }
-            .push-#{($i*2)-1} {
-                margin-left: 90px * ($i *2);
-            }
-
-            .text-col-2,.col-2 {
-                width: 360px
-            }
-
-          $i: $i - 1;
-        }
 
 
     }
@@ -276,10 +338,13 @@ figure.element{
     	.block-photo{
     		margin:10px 0 40px;
     	}
-    	.quote-container quote{
-    		font-size:32px;
-    		display:block;
-    	}
+    	.quote-container {
+            margin-right:90px;
+            quote{
+    		  font-size:32px;
+    		  display:block;
+    	   }
+        }
     	#photoBlocks{
     		padding:0 0 80px;
     	}
@@ -309,10 +374,6 @@ figure.element{
             }
 		} 
 
-        .lead-photo{
-            margin:0 -10px;
-        }
-
         $i: 8;
         @while $i > 0 {
 
@@ -330,12 +391,15 @@ figure.element{
     	
     }
     @media(min-width:1140px){
+        .gu-block.block-title{
+            padding-bottom:60px;
+        }
         #photoBlocks{
             padding:0;
         }
-    	.lead-photo{
-    		margin: 0 -10px 0 -50px;
-    	}
+        .block-lead{
+            margin-top:120px;
+        }
     	$i: 8;
         @while $i > 0 {
 
@@ -348,6 +412,11 @@ figure.element{
             }
 
           $i: $i - 1;
+        }
+        .block-text{
+            h4,p{
+                font-size:20px;
+            }
         }
     }
 

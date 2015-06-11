@@ -1,13 +1,20 @@
 <div class="gu-block block-audio col-{{size}} push-{{offset}}">
+	{{#if primarytext}}
+	<div class="quote-container" style="{{#if textcolor}}color:{{textcolor}}{{/if}}">
+		<quote>{{{primarytext}}} {{{secondarytext}}}</quote>
+		{{#credit}}
+			<p class="quote-credit">{{credit}}</p>
+		{{/credit}}
+	</div>
+	{{/if}}
+
 	<div class='podcastPlayer'>
 		<audio >
 			<source src="{{url}}" type="audio/mpeg">
 		</audio>
-		<!-- {{#canPlay}} -->
 		<div class='guAudioPlayer'>
 			<div class='playerContainer'>
 				<div class='guPlayerBtn {{#isPlaying}}playerIsPlaying{{/isPlaying}}' on-click='triggerPlayPause'>
-				
 					<svg x="0px" y="0px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="display:block;margin-left:auto;margin-right:auto;">
 						<circle fill="none" stroke="#ffbb00" stroke-width="1px" cx="50" cy="50" r="48"/>
 						<g transform="translate(50,50)">
@@ -20,17 +27,10 @@
 						<polygon fill="#333333" class='guPause' points="62.4,63.5 60.4,65.5 54.1,65.5 54.1,32.5 62.4,32.5 "/>
 						<polygon fill="#333333" class='guPlay' points="72.2,49.3 38.1,35.2 36.9,36.1 36.9,63.9 38.1,64.8 72.2,50.7 "/>
 					</svg>
-
 					{{#duration != 0}}<div class='guTimer f-textSans'>{{calcTimeRemaining}}</div>{{/duration}}
-				
 				</div>
-			
-			
 			</div>
-
-
 		</div>
-		<!-- {{/canPlay}} -->
 	</div>
 </div>
 
@@ -39,9 +39,11 @@
 <style>
 
 .podcastPlayer {
-	width: 100%;
 	display: block;
-	margin-top: 10px;
+	width:50px;
+	position: absolute;
+	top:15px;
+	right:0;
 }
 
 audio {
@@ -58,7 +60,7 @@ audio {
 }
 
 .guPlayerBtn {
-	width: 75px;
+	width: 50px;
 	display: block;
 	margin-left:auto;
 	margin-right:auto;
@@ -66,8 +68,8 @@ audio {
 }
 
 .guPlayerBtn svg {
-	width: 75px;
-	height: 75px;
+	width: 50px;
+	height: 50px;
 	cursor: pointer;
 }
 
@@ -125,6 +127,9 @@ audio {
 	height: 15px;
 }
 @media (min-width: 980px){
+	.podcastPlayer {
+		width:80px;
+	}
 	.playerContainer {
 		float: left;
 	}
@@ -139,10 +144,9 @@ audio {
 	}
 
 	.guPlayerBtn {
-		width: 100px;
+		width: 80px;
 	}
 	.guPlayerBtn svg {
-		
 		height: 80px;
 	}
 

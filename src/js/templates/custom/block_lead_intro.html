@@ -18,10 +18,11 @@
 		<div class="lead-text-block text-col-{{size}} push-{{offset}}" style="{{customstyle}} {{#if textcolor}}color: {{textcolor}}{{elseif config.headline_colour != ''}}color: #{{config.headline_colour}};{{/if}}">
 			<h1>{{{primarytext}}}</h1>
 			<h2>{{{secondarytext}}}</h2>
-			<shareContainer media="['twitter','facebook','mail']" photo="{{i}}"/>
+			<!-- <shareContainer media="['twitter','facebook','mail']" photo="{{i}}"/> -->
 		</div>
 		<div class="fadeToggle">
 			<button class="fadestate-{{fadeState}}" on-click="toggleFadestate:{{fadeState}}"><span></span></button>
+			<span class="toggleLabel">{{#if fadeState==="old"}}Then{{else}}Now{{/if}}</span>
 		</div>
 	</div>
 	
