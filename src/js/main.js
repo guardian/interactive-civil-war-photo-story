@@ -80,6 +80,7 @@ define([
                     render(json.sheets.blocks, json.sheets.config)
                 });
         } else {
+            console.log('tabletop')
             Tabletop.init({ 
                 key: key,
                 callback: function(data, tabletop) { 
@@ -146,7 +147,7 @@ define([
                 },
                 photofade: function(node,options){
                     var blocks = this.get('blocks');
-                    blocks[options.id].fadeState = "new";
+                    blocks[options.id].fadeState = "old";
 
                     this.set('blocks',blocks);
 
@@ -172,10 +173,10 @@ define([
                 var ractiveId = fadeBlocksEl[i].getAttribute('id').replace('p','');
                 var ractiveObject = base.get('blocks[' + ractiveId + ']');
                 
-                if(elOffset < (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "new" && !ractiveObject.toggleClicked){
-                    base.set('blocks[' + ractiveId + '].fadeState',"old");
-                }else if(elOffset > (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "old" && !ractiveObject.toggleClicked){
+                if(elOffset < (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "old" && !ractiveObject.toggleClicked){
                     base.set('blocks[' + ractiveId + '].fadeState',"new");
+                }else if(elOffset > (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "new" && !ractiveObject.toggleClicked){
+                    base.set('blocks[' + ractiveId + '].fadeState',"old");
                 };
             }
         },{delay:500})

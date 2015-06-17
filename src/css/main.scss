@@ -56,7 +56,6 @@ figure.element{
     ***********************/
 
     .title-text-block{
-        max-width:620px;
         padding-top:1px !important;
         h1{
             line-height: 1em;
@@ -75,8 +74,8 @@ figure.element{
         h2{
             font-weight:normal;
             font-size:18px;
-            line-height:1.25em;
-            color:#DCDCDC;
+            line-height:1.3em;
+            color:#767676;
         }
         ul{
             margin:20px 0 0;
@@ -126,7 +125,7 @@ figure.element{
     	position: relative;
     	margin-bottom:30px;
         clear:both;
-        margin-top:70px;
+        margin-top:100px;
         &.story-lead{
             margin-top:0;
         }
@@ -235,7 +234,7 @@ figure.element{
     .block-text{
     	margin-bottom:50px;
     	h4{
-    		font-size:28px;
+    		font-size:16px;
     		margin:0;
     		line-height:1.1em;
     	}
@@ -266,10 +265,10 @@ figure.element{
     		margin:25px 0 0;
     	}
     	.lead-photo{
-    		margin:0 -30px;
+    		margin:0 -20px;
     	}
     	#photoBlocks{
-    		padding:0 20px 80px;
+    		padding:0 10px 80px;
     	}
     }
     @media(min-width:660px){
@@ -322,7 +321,7 @@ figure.element{
     			font-size:54px;
     		}
     		h2{
-    			font-size:20px;
+    			font-size:18px;
     		}
     	}
     	.align-{
@@ -399,6 +398,11 @@ figure.element{
         }
         .block-lead{
             margin-top:120px;
+        }
+        .title-text-block{
+            h1{
+                font-size:58px;
+            }
         }
     	$i: 8;
         @while $i > 0 {
