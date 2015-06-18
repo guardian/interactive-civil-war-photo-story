@@ -3,7 +3,7 @@
 {{/if}}
 
 <div class="gu-block block-lead intro {{#if i === 0}}story-lead{{/if}} state-{{fadeState}}" id="p{{i}}" decorator="photofade:{id:{{i}}}">
-	<div class="lead-photo">
+	<div class="lead-photo push-{{offset}} col-{{size}}">
 		<div class="lead-banding" style="{{#if bandcolor}}background-color:{{bandcolor}}{{/if}}"></div>
 		<div class="lead-photo-container" style="position:relative; z-index:2;">
 			<div class="fadeImageContainer {{#if fadeState === 'new'}}fade-visible{{/if}}">
@@ -14,15 +14,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="lead-text-container position-{{leadtextposition}}">
-		<div class="lead-text-block text-col-{{size}} push-{{offset}}" style="{{customstyle}} {{#if textcolor}}color: {{textcolor}}{{elseif config.headline_colour != ''}}color: #{{config.headline_colour}};{{/if}}">
-			<h1>{{{primarytext}}}</h1>
-			<h2>{{{secondarytext}}}</h2>
-			<!-- <shareContainer media="['twitter','facebook','mail']" photo="{{i}}"/> -->
-		</div>
-		<div class="fadeToggle">
-			<button class="fadestate-{{fadeState}} toggleClicked-{{toggleClicked}}" on-click="toggleFadestate:{{fadeState}}"><span></span></button>
-			<span class="toggleLabel">{{#if fadeState==="old"}}Then{{else}}Now{{/if}}</span>
+	<div class="right-side-container">
+		<div class="lead-text-container position-{{leadtextposition}}">
+			<div class="lead-text-block" style="{{customstyle}} {{#if textcolor}}color: {{textcolor}}{{elseif config.headline_colour != ''}}color: #{{config.headline_colour}};{{/if}}">
+				<h1>{{{primarytext}}}</h1>
+				<h2>{{{secondarytext}}}</h2>
+				<!-- <shareContainer media="['twitter','facebook','mail']" photo="{{i}}"/> -->
+			</div>
+			<div class="fadeToggle">
+				<button class="fadestate-{{fadeState}} toggleClicked-{{toggleClicked}}" on-click="toggleFadestate:{{fadeState}}"><span></span></button>
+				<span class="toggleLabel">{{#if fadeState==="old"}}Then{{else}}Now{{/if}}</span>
+			</div>
 		</div>
 	</div>
 	

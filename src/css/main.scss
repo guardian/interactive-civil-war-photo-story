@@ -221,14 +221,14 @@ figure.element{
             margin-right:70px;
             margin-top:0;
         }
-        &:before{
-            width:70px;
-            height:1px;
-            background:rgba(255,255,255,0.4);
-            display:block;
-            content:'';
-            margin-bottom:10px;
-        }
+        // &:before{
+        //     width:70px;
+        //     height:1px;
+        //     background:rgba(255,255,255,0.4);
+        //     display:block;
+        //     content:'';
+        //     margin-bottom:10px;
+        // }
     	quote{
     		font-size:22px;
     		line-height:1.2em;
@@ -259,6 +259,8 @@ figure.element{
     	}
     }
 
+
+
     
    
 
@@ -282,13 +284,16 @@ figure.element{
     		margin:0 -20px;
     	}
     	#photoBlocks{
-    		padding:0 10px 80px;
+    		padding:0 0 80px;
     	}
         .quote-container{
             margin:20px 0 50px;
         }
     }
     @media(min-width:660px){
+        .lead-photo{
+            margin:0;
+        }
         .title-text-block{
             h1{
                 font-size:52px;
@@ -333,6 +338,9 @@ figure.element{
     }
 
     @media(min-width:980px){
+        .lead-photo.push-{
+            margin-left:0;
+        }
     	.block-lead{
     		h1{
     			font-size:54px;
@@ -437,9 +445,6 @@ figure.element{
 
           $i: $i - 1;
         }
-        .gu-block.block-audio{
-            width:740px;
-        }
         .block-text{
             h4,p{
                 font-size:20px;
@@ -468,10 +473,6 @@ figure.element{
             }
 
           $i: $i - 1;
-        }
-        .gu-block.block-audio{
-            width:780px;
-            margin-left:250px;
         }
 
     }
