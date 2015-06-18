@@ -14,6 +14,8 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 @import 'modules/fonts';
 $mainYellow: #FFBB00;
 
+@import 'nouislider.scss';
+
 figure.element{
 	margin:0;
 }

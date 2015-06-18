@@ -191,7 +191,15 @@ define([
         },{delay:500})
 
         function faderInit(){
-            window.bob = $;
+            // TESING
+            $("#slider").noUiSlider({
+            	start: [20, 80],
+            	connect: true,
+            	range: {
+            		'min': 0,
+            		'max': 100
+            	}
+            });
 
             fadeBlocks = base.get('blocks');
             fadeBlocksEl = document.querySelectorAll('.block-lead.intro');
