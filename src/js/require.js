@@ -1,6 +1,8 @@
 require.config({
   shim: {
-
+    nouislider: [
+      "jquery"
+    ]
   },
   paths: {
     almond: "../../bower_components/almond/almond",
@@ -19,7 +21,9 @@ require.config({
     "Markdown.Converter": "../../bower_components/requirejs-plugins/lib/Markdown.Converter",
     text: "../../bower_components/text/text",
     rvc: "../../bower_components/rvc/dist/rvc",
-    skrollr: "../../bower_components/skrollr/src/skrollr"
+    skrollr: "../../bower_components/skrollr/src/skrollr",
+    nouislider: "../../bower_components/nouislider/distribute/jquery.nouislider.all.min",
+    jquery: "../../bower_components/jquery/dist/jquery"
   },
   packages: [
 

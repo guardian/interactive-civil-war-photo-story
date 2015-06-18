@@ -13,7 +13,9 @@ define([
     'rvc!templates/block_text',
     'rvc!templates/block_audio',
     'rvc!templates/block_title',
-    'rvc!templates/shareContainer'
+    'rvc!templates/shareContainer',
+    'jquery',
+    'nouislider'
 ], function(
     get,
     Tabletop,
@@ -29,13 +31,16 @@ define([
     blockTextTemplate,
     blockAudio,
     blockTitle,
-    shareContainerTemplate
+    shareContainerTemplate,
+    $,
+    nouislider
 ) {
    'use strict';
     var dom;
     var base;
     var liveLoad = false;
     var fadeBlocks,fadeBlocksEl;
+    var previousScrollPos = 0;
 
     function parseUrl(el){
         
@@ -166,22 +171,28 @@ define([
 
         var throttledFunction = throttle(function(){
             var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+            var scrollDir = scrollPos > previousScrollPos ? "down" : "up";
+
             for(var i=0; i<fadeBlocksEl.length;i++){
                 var elOffset = fadeBlocksEl[i].getBoundingClientRect().top;
                 var elHeight = fadeBlocksEl[i].querySelector('.lead-photo').getBoundingClientRect().height;
                 var windowHeight = window.innerHeight;
                 var ractiveId = fadeBlocksEl[i].getAttribute('id').replace('p','');
                 var ractiveObject = base.get('blocks[' + ractiveId + ']');
-                
-                if(elOffset < (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "old" && !ractiveObject.toggleClicked){
-                    base.set('blocks[' + ractiveId + '].fadeState',"new");
-                }else if(elOffset > (windowHeight/2) - (elHeight/2) && ractiveObject.fadeState === "new" && !ractiveObject.toggleClicked){
-                    base.set('blocks[' + ractiveId + '].fadeState',"old");
-                };
+                if(!ractiveObject.toggleClicked){
+                    if(elOffset + (elHeight/2) < (windowHeight/2) && ractiveObject.fadeState === "old"){
+                        base.set('blocks[' + ractiveId + '].fadeState',"new");
+                    }else if(elOffset + (elHeight/2) > (windowHeight/2) && ractiveObject.fadeState === "new"){
+                        base.set('blocks[' + ractiveId + '].fadeState',"old");
+                    };
+                }
             }
+            previousScrollPos = scrollPos;
         },{delay:500})
 
         function faderInit(){
+            window.bob = $;
+
             fadeBlocks = base.get('blocks');
             fadeBlocksEl = document.querySelectorAll('.block-lead.intro');
 

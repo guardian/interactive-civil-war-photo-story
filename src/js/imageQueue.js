@@ -16,7 +16,7 @@ define([ 'promise', 'throttle' ], function ( Promise, throttle ) {
 	var imageQueue = {
 		add: function ( node, src, imgSizes ) {
 			// return a promise
-
+			
 			return new Promise( function ( fulfil, reject ) {
 				var el = {
 					fulfil: fulfil,

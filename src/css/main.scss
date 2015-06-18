@@ -211,7 +211,14 @@ figure.element{
     	}
     }
     .quote-container{
-    	margin:10px 70px 50px 0;
+    	margin:10px 0 50px;
+        .quote-credit-container{
+            margin-top:10px;
+        }
+        .quote-credit{
+            margin-right:70px;
+            margin-top:0;
+        }
         &:before{
             width:70px;
             height:1px;
@@ -255,8 +262,13 @@ figure.element{
 
 
     @media(min-width:480px){
+        .title-text-block{
+            h1{
+                font-size:42px;
+            }
+        }
     	.block-lead{
-    		margin-bottom:50px;
+    		margin-bottom:0;
     		h1{
     			font-size:36px;
     		}
@@ -270,6 +282,9 @@ figure.element{
     	#photoBlocks{
     		padding:0 10px 80px;
     	}
+        .quote-container{
+            margin:20px 0 50px;
+        }
     }
     @media(min-width:660px){
         .title-text-block{
@@ -338,7 +353,9 @@ figure.element{
     		margin:10px 0 40px;
     	}
     	.quote-container {
-            margin-right:90px;
+            .quote-credit{
+                margin-right:90px;
+            }
             quote{
     		  font-size:32px;
     		  display:block;
@@ -386,6 +403,7 @@ figure.element{
 
           $i: $i - 1;
         }
+
     	
     	
     }
@@ -417,6 +435,9 @@ figure.element{
 
           $i: $i - 1;
         }
+        .gu-block.block-audio{
+            width:740px;
+        }
         .block-text{
             h4,p{
                 font-size:20px;
@@ -445,6 +466,10 @@ figure.element{
             }
 
           $i: $i - 1;
+        }
+        .gu-block.block-audio{
+            width:780px;
+            margin-left:250px;
         }
 
     }

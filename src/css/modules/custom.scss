@@ -61,23 +61,24 @@ $mainYellow: #ffbb00;
 
 .guInteractive#civil-war .block-lead{
 	.lead-text-container{
-		margin-top:20px;
+		margin-top:15px;
 	}
 }
 
-.guInteractive#civil-war .block-lead.intro h1 span {
+.guInteractive#civil-war .block-lead.intro h1 {
 	font-size: 24px;
 	font-weight: 700;
-}
-.guInteractive#civil-war .block-lead.intro h1 {
 	color: #fff;
-	font-size: 16px;
-	font-weight: 100;
 	margin-top:0;
+	line-height:1.2em;
 }
+
 
 .block-lead.intro h2 {
 	color: #767676;
+	strong{
+		color:#aeaeae;
+	}
 }
 
 .fadeToggle{
@@ -136,7 +137,7 @@ $mainYellow: #ffbb00;
 		&.toggleClicked-true{
 			span{
 				background:#ffbb00;
-				transition:left 1s;
+				transition:left 0.2s;
 			}
 		}
 
@@ -193,10 +194,14 @@ $mainYellow: #ffbb00;
 }
 
 .guInteractive .quote-container .quote-credit {
-	color: #fff;
-	margin-top: 0;
-	font-size:20px;
+	span{
+		color: #fff;
+	}
 }
+
+.guInteractive .quote-container .quote-credit-container{
+	position: relative;
+	}
 
 
 
@@ -279,28 +284,37 @@ $mainYellow: #ffbb00;
 	#p1{
 		margin-top:30px;
 	}
-	
-	h1{
-		span{
-			font-size:20px;
-			display:block;
-			line-height: 1.2em;
-		}
-	}
 	.shareButtons button{
 		background-color:rgba(0,0,0,0.5);
 		&:hover{
 			background-color:rgba(0,0,0,1);
 		}
 	}
+	@media(min-width:480px){
+		.block-lead.intro{
+			h1{
+				font-size:28px;
+			}
+			
+			.lead-text-container{
+				margin-top:30px;
+			}
+		}
+		.fadeToggle{
+			width:95px;
+			.toggleLabel{
+				display: inline-block;
+				vertical-align: top;
+				margin-top:10px;
+				margin-left:5px;
+			}
+		}
+	}
 
 	@media(min-width:660px){
 		.block-lead.intro{
 			h1{
-				span{
-					font-size:38px;
-				}
-				font-size:20px;
+				font-size:32px;
 			}
 			
 			.lead-text-container{
@@ -311,12 +325,8 @@ $mainYellow: #ffbb00;
 			margin-bottom:20px;
 		}
 		.quote-container{
-			quote{
-				font-size:30px;
-			}
-			.quote-credit{
-				font-size:22px;
-				margin-top:0.5em;
+			quote,.quote-credit{
+				font-size:28px;
 			}
 		} 
 		#photoBlocks{
@@ -340,8 +350,11 @@ $mainYellow: #ffbb00;
 		#photoBlocks{
 			max-width:none;
 		}
-		.block-lead h1{
-			font-size:78px;
+		.block-lead {
+			margin-top:120px;
+			h1{
+				font-size:78px;
+			}
 		}
 		.lead-photo{
 			margin-left:0;
@@ -351,15 +364,11 @@ $mainYellow: #ffbb00;
 		}
 		.block-lead.intro{
 			h1{
-				margin-top:0;
-				margin-right:0;
-				font-size:16px;
-				span{
-					font-size:22px;
-					line-height:1em;
-					margin-bottom:0.2em;
-					display:inline-block;
-				}
+				font-size:22px;
+				line-height:1em;
+				margin-bottom:0.2em;
+				display:inline-block;
+
 			}
 			.lead-text-container{
 				margin-left:820px;
@@ -384,25 +393,24 @@ $mainYellow: #ffbb00;
 		.lead-photo{
 			width:860px;
 		}
+		.block-lead {
+			margin-top:160px;
+		}
 		.block-lead.intro{
 			.lead-text-container{
 				margin-left:880px;
 			}
 			h1{
-				font-size:20px;
-				span{
-					font-size:28px;
-					display: block;
-				}
+				font-size:28px;
+				display: block;
 			}
 		}
 		.quote-container{
-			quote{
+			quote,.quote-credit{
 				font-size:38px;
 			}
-			.quote-credit{
-				font-size:24px;
-				margin-top:0.5em;
+			.quote-credit-container{
+				margin-top:20px;
 			}
 		} 
 	}
@@ -419,12 +427,6 @@ $mainYellow: #ffbb00;
 	@media(max-width:979px){
         .lead-text-block{
             margin-left:0;
-        }
-        .block-lead{
-            h1{
-                color:#333;
-                text-shadow:none;
-            }
         }
         .lead-divider{
             background:rgba(0,0,0,0.2)
