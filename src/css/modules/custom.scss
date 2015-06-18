@@ -227,7 +227,7 @@ $mainYellow: #ffbb00;
 ***********************/
 .lead-photo-container{
 	.fadeImageContainer{
-		transition: opacity 1s ease-in;
+		transition: opacity 1s ease-out;
 		opacity:0;
 
 		&.fade-visible{
