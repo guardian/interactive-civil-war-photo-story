@@ -1,8 +1,8 @@
 <div class="gu-block block-audio col-{{size}} push-{{offset}}">
 	<div class="quote-container" style="{{#if textcolor}}color:{{textcolor}}{{/if}}">
-		<quote>{{{primarytext}}} {{{secondarytext}}}</quote>
-		<div class="quote-credit-container">
-			<p class="quote-credit">Listen to <span>{{credit}}</span></p>
+		<quote>{{{primarytext}}}</quote>
+		<div class="audio-profile-container">
+			<div class="audio-profile-image" style="background-image:url({{secondarytext}});"></div>
 			<div class='podcastPlayer'>
 				<audio >
 					<source src="{{url}}" type="audio/mpeg">
@@ -28,6 +28,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="quote-credit-container">
+			<p class="quote-credit">Listen to <span>{{credit}}</span></p>
+		</div>
 	</div>
 </div>
 
@@ -36,10 +39,8 @@
 <style>
 
 .podcastPlayer {
-	/*display: block;*/
-	display:none;
+	display: block;
 	width:50px;
-	position: absolute;
 	top:0;
 	right:0;
 }
@@ -92,8 +93,8 @@ audio {
 
 .guTimer {
 	color: #fff;
-	font-size: 14px;
-	margin-top:7px;
+	font-size: 12px;
+	margin-top:3px;
 	display: inline-block;
 	text-align: center;
 	width: 100%;
@@ -127,7 +128,7 @@ audio {
 }
 @media (min-width: 980px){
 	.podcastPlayer {
-		width:80px;
+		width:60px;
 	}
 	.playerContainer {
 		float: left;
@@ -143,10 +144,10 @@ audio {
 	}
 
 	.guPlayerBtn {
-		width: 80px;
+		width: 60px;
 	}
 	.guPlayerBtn svg {
-		height: 80px;
+		height: 60px;
 	}
 
 	.guPlayerBtn svg {
@@ -160,8 +161,19 @@ audio {
 
 	.guProgressContainer {
 		vertical-align: middle;
-		
 		padding-right: 20px;
+	}
+}
+
+@media(min-width:1140px){
+	.podcastPlayer {
+		width:80px;
+	}
+	.guPlayerBtn {
+		width: 80px;
+	}
+	.guPlayerBtn svg {
+		height: 80px;
 	}
 }
 
