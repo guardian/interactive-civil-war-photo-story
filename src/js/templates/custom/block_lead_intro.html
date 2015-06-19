@@ -5,8 +5,8 @@
 <div class="gu-block block-lead intro {{#if i === 0}}story-lead{{/if}} state-{{fadeState}}" id="p{{i}}" decorator="photofade:{id:{{i}}}">
 	<div class="lead-photo push-{{offset}} col-{{size}}">
 		<div class="lead-banding" style="{{#if bandcolor}}background-color:{{bandcolor}}{{/if}}"></div>
-		<div class="lead-photo-container" style="position:relative; z-index:2;">
-			<div class="fadeImageContainer {{#if fadeState === 'new'}}fade-visible{{/if}}">
+		<div class="lead-photo-container toggleClicked-{{toggleClicked}}" style="position:relative; z-index:2;">
+			<div class="fadeImageContainer {{#if fadeState === 'new'}}fade-visible{{/if}}" style="opacity:{{fadeLevel}}">
 				<div class='guLazyLoad ' decorator='lazyload:{src:{{url.split(",")[1]}},imgSizes:{{config[ photoshape + "_sizes" ]}} }'></div>
 			</div>
 			<div class="fadeImageContainer {{#if fadeState === 'old'}}fade-visible{{/if}}">
@@ -19,11 +19,13 @@
 			<div class="lead-text-block" style="{{customstyle}} {{#if textcolor}}color: {{textcolor}}{{elseif config.headline_colour != ''}}color: #{{config.headline_colour}};{{/if}}">
 				<h1>{{{primarytext}}}</h1>
 				<h2>{{{secondarytext}}}</h2>
-				<!-- <shareContainer media="['twitter','facebook','mail']" photo="{{i}}"/> -->
+				<p>Archive photograph by {{credit}}</p>
 			</div>
-			<div class="fadeToggle">
-				<button class="fadestate-{{fadeState}} toggleClicked-{{toggleClicked}}" on-click="toggleFadestate:{{fadeState}}"><span></span></button>
-				<span class="toggleLabel">{{#if fadeState==="old"}}Then{{else}}Now{{/if}}</span>
+			<div class="fadeToggle toggleClicked-{{toggleClicked}}">
+				<div class="slider noUi-extended" data-slider="{{i}}"></div>
+				<!-- <button class="fadestate-{{fadeState}} " on-click="toggleFadestate:{{fadeState}}"><span></span></button> -->
+				<!-- {{fadeLevel}} -->
+				<span class="toggleLabel"><span style="opacity:{{1-fadeLevel}}">Then</span><span style="opacity:{{fadeLevel}}">Now</span></span>
 			</div>
 		</div>
 	</div>

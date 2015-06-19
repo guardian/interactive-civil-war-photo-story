@@ -98,7 +98,7 @@ define([
 
     function render(blocks, config){
         var data = {
-            blocks: blocks.map(function(block){block.fadeState = ""; return block;}),
+            blocks: blocks.map(function(block){block.fadeState = ""; block.fadeLevel = 0; return block;}),
             config: {},
             shareMessage: "Before & After: the American Civil War",
             scrollPosition: 0
@@ -106,7 +106,6 @@ define([
         console.log(data);
         //convert array of params into a single config object
         config.forEach(function(d){
-
             if(d.param.search('_sizes') > -1){
                 //converts string of sizes into array of numbers
                 var a = d.value.split(',');
@@ -171,35 +170,49 @@ define([
 
         var throttledFunction = throttle(function(){
             var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
-            var scrollDir = scrollPos > previousScrollPos ? "down" : "up";
+            var windowHeight = window.innerHeight;
 
             for(var i=0; i<fadeBlocksEl.length;i++){
                 var elOffset = fadeBlocksEl[i].getBoundingClientRect().top;
                 var elHeight = fadeBlocksEl[i].querySelector('.lead-photo').getBoundingClientRect().height;
-                var windowHeight = window.innerHeight;
                 var ractiveId = fadeBlocksEl[i].getAttribute('id').replace('p','');
                 var ractiveObject = base.get('blocks[' + ractiveId + ']');
                 if(!ractiveObject.toggleClicked){
-                    if(elOffset + (elHeight/2) < (windowHeight/2) && ractiveObject.fadeState === "old"){
+                    if(elOffset + ((elHeight/3)) < (windowHeight/2) && ractiveObject.fadeState === "old"){
                         base.set('blocks[' + ractiveId + '].fadeState',"new");
-                    }else if(elOffset + (elHeight/2) > (windowHeight/2) && ractiveObject.fadeState === "new"){
+                        $('#p' + ractiveId + ' .slider').val(1);
+                        base.set('blocks[' + ractiveId + '].fadeLevel',1);
+                    }else if(elOffset + ((elHeight/3)) > (windowHeight/2) && ractiveObject.fadeState === "new"){
                         base.set('blocks[' + ractiveId + '].fadeState',"old");
+                        $('#p' + ractiveId + ' .slider').val(0);
+                        base.set('blocks[' + ractiveId + '].fadeLevel',0);
                     };
                 }
             }
-            previousScrollPos = scrollPos;
         },{delay:500})
 
+        var throttleFade = throttle(function(x,val){
+            
+        },{delay:200})
+
         function faderInit(){
-            // TESING
-            // $("#slider").noUiSlider({
-            // 	start: [20, 80],
-            // 	connect: true,
-            // 	range: {
-            // 		'min': 0,
-            // 		'max': 100
-            // 	}
-            // });
+            $(".slider").noUiSlider({
+            	start: [0],
+                step: 0.05,
+                animate:true,
+            	range: {
+            		'min': 0,
+            		'max': 1
+            	}
+            });
+            var blocks = base.get('blocks');
+            
+            $('.slider').on('slide',function(e,val){
+                var sliderId = $(e.currentTarget).attr('data-slider');
+                blocks[sliderId].fadeLevel = Number(val);
+                blocks[sliderId].toggleClicked = true;
+                base.set('blocks',blocks);
+            })
 
             fadeBlocks = base.get('blocks');
             fadeBlocksEl = document.querySelectorAll('.block-lead.intro');

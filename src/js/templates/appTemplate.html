@@ -1,8 +1,4 @@
 <div id="{{config.id}}" class="guInteractive" style='{{#config.banding_colour != ''}}background: {{config.banding_colour}};{{/config.banding_colour}} {{#config.text_colour != ''}}color: {{config.text_colour}};{{/config.text_colour}}'>
-
-<div id="slider"></div>
-
-
 	<div class="interactiveWrapper" style="{{#config.background_colour != ''}}background: {{config.background_colour}};{{/config.background_colour}}">
 		<div id="photoBlocks">
 			{{#each blocks:i}}
@@ -24,7 +20,19 @@
 					<audioBlock />
 				{{/if}}
 			{{/each}}
+			<div class="interactiveCredits">
+				<ul>
+					<li>Photographer and interviewer: David Levene</li>
+					<li>Picture editor: Jim Powell</li>
+					<li>Design and development: Troy Griggs and Daan Louter</li>
+					<li>Editors: Kate Abbott and Becky Barnicoat</li>
+					<li>Researcher: Luc Torres</li>
+					<li>Audio editor: Stuart Silver</li>
+					<li>Archive photography: Library of Congress, Getty Images, Abraham Lincoln Presidential Library</li>
+				</ul>
+			</div>
 		</div>
+
 	</div>
 
 </div>

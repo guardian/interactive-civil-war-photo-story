@@ -70,6 +70,9 @@ figure.element{
             font-size:32px;
             margin-bottom:0.2em;
             margin-top:1em;
+            span{
+                color:$mainYellow;
+            }
         }
         .shareButtons{
             margin-top:10px;
@@ -153,6 +156,7 @@ figure.element{
     		margin-top:1em;
     		font-size:24px;
     		line-height:1em;
+            margin-right:70px;
     	}
     	h2{
     		font-size:18px;
@@ -198,15 +202,16 @@ figure.element{
                 color:#aeaeae;
             }
         }
+        p{
+            color: #999;
+            font-family:'Guardian Text Sans Web', Arial;
+            font-size:12px;
+            line-height:1.3em;
+        }
     }
     .lead-photo-container{
         .fadeImageContainer{
-            transition: opacity 1s ease-out;
-            opacity:0;
-
-            &.fade-visible{
-                opacity:1;
-            }
+            transition: opacity 0.2s ease-out;
 
             &:first-child{
                 position: absolute;
@@ -218,87 +223,129 @@ figure.element{
                 }
             }
         }
+        &.toggleClicked-{
+            .fadeImageContainer{
+                transition: opacity 2s ease-out;
+            }
+        }
     }
 
+    // .fadeToggle{
+    //     position: absolute;
+    //     right:0;
+    //     top:0;
+    //     width:60px;
+    //     button{
+    //         height:30px;
+    //         width:60px;
+    //         border-radius:30px;
+    //         background:#575757;
+    //         border:none;
+    //         position: relative;
+    //         outline:none;
+    //         cursor:pointer;
+    //         &:hover{
+    //             span{
+    //                 background-color: $mainYellow;
+    //                 transition:background-color 0.5s;
+    //             }
+    //         }
+    //         span{
+    //             height:100%;
+    //             width:30px;
+    //             position: absolute;
+    //             left:0;
+    //             background:#DBDBDB;
+    //             top:0;
+    //             display:block;
+    //             border-radius:30px;
+    //         }
+    //         &.fadestate-old{
+    //             span{
+    //                 left:0;
+    //             }
+    //         }
+    //         &.fadestate-new{
+    //             span{
+    //                 left:30px;
+    //             }
+    //         }
+
+
+    //         &.toggleClicked-true{
+    //             span{
+    //                 background:#ffbb00;
+    //                 transition:left 0.2s;
+    //             }
+    //         }
+
+            
+            
+    //         @keyframes toRight {
+    //             0% { background-color:#dbdbdb; left:0;}
+    //             20% { background-color:#ffbb00}
+    //             40% {left:0;}
+    //             60% { left:30px; }
+    //             80% { background-color:#ffbb00}
+    //             100% { background-color:#dbdbdb; left:30px;}
+    //         }
+    //         @keyframes toLeft {
+    //             0% { background-color:#dbdbdb; left:30px;}
+    //             20% { background-color:#ffbb00}
+    //             40% {left:30px;}
+    //             60% { left:0; }
+    //             80% { background-color:#ffbb00}
+    //             100% { background-color:#dbdbdb; left:0;}
+    //         }
+            
+    //     }
+        
+    // }
     .fadeToggle{
         position: absolute;
         right:0;
         top:0;
-        width:60px;
-        button{
+        .noUi-horizontal{
             height:30px;
-            width:60px;
-            border-radius:30px;
             background:#575757;
             border:none;
-            position: relative;
-            outline:none;
+            border-radius:30px;
+            box-shadow:none;
             cursor:pointer;
-            &:hover{
-                span{
-                    background-color: $mainYellow;
-                    transition:background-color 0.5s;
-                }
-            }
-            span{
-                height:100%;
-                width:30px;
-                position: absolute;
-                left:0;
-                background:#DBDBDB;
+            display:inline-block;
+            width:60px;
+            .noUi-handle{
                 top:0;
-                display:block;
+                height:30px;
+                width:30px;
                 border-radius:30px;
-            }
-            &.fadestate-old{
-                span{
-                    left:0;
+                background: $mainYellow;
+                transition:background 0.2s;
+                border:none;
+                box-shadow:none;
+                left: -1px;
+                right: -30px;
+                cursor:pointer;
+                &:before,&:after{
+                    display:none;
+                }
+                &:hover{
+                    background: darken($mainYellow,5%);
                 }
             }
-            &.fadestate-new{
-                span{
-                    left:30px;
-                }
+            &.noUi-extended{
+                padding-right:30px;
             }
-
-            &.toggleClicked-{
-                &.fadestate-old{
-                    span{
-                        animation: toLeft 1s;
-                    }
-                }
-                &.fadestate-new{
-                    span{
-                        animation: toRight 1s linear;
-                    }
-                }
+        }
+        &.toggleClicked-{
+            .noUi-handle{
+                background:#DBDBDB;
             }
-            &.toggleClicked-true{
-                span{
+            .noUi-state-tap{
+                .noUi-handle{
                     background:#ffbb00;
-                    transition:left 0.2s;
                 }
             }
-
-            
-            
-            @keyframes toRight {
-                0% { background-color:#dbdbdb; left:0;}
-                20% { background-color:#ffbb00}
-                40% {left:0;}
-                60% { left:30px; }
-                80% { background-color:#ffbb00}
-                100% { background-color:#dbdbdb; left:30px;}
-            }
-            @keyframes toLeft {
-                0% { background-color:#dbdbdb; left:30px;}
-                20% { background-color:#ffbb00}
-                40% {left:30px;}
-                60% { left:0; }
-                80% { background-color:#ffbb00}
-                100% { background-color:#dbdbdb; left:0;}
-            }
-            
         }
         .toggleLabel{
             display:block;
@@ -306,8 +353,16 @@ figure.element{
             font-family:"Guardian Text Sans Web", Arial;
             margin-top:5px;
             text-align: center;
+            position: relative;
+            span{
+                position: absolute;
+                left:0;
+                text-align: center;
+                display:block;
+            }
         }
     }
+    
 
 
 
@@ -386,9 +441,9 @@ figure.element{
             }
         }
         quote{
-            margin-right:90px;
             min-height:110px;
             display: inline-block;
+            margin-right:90px;
         }
     	quote,.quote-credit{
             color: #767676;
@@ -557,10 +612,34 @@ figure.element{
     }
 
     @media(min-width:980px){
+        #p1{
+            margin-top:70px;
+        }
         .lead-photo{
             margin-right:0;
             float:left;
             padding:0;
+        }
+        .block-title{
+            ul li{
+                font-size:22px;
+                &:before{
+                    background:#767676;
+                }
+                a{
+                    color:#767676;
+                    border-color:#767676;
+                    transition:color 0.5s, border-color 0.5s;
+                }
+            }
+        }
+        .title-text-block{ 
+            h1{
+                font-size:68px;
+            }
+            h2{
+                font-size:22px;
+            }
         }
 
         .block-lead.intro{
@@ -570,7 +649,7 @@ figure.element{
                 line-height:1em;
                 margin-bottom:0.2em;
                 display:inline-block;
-
+                margin-right:0;
             }
             h2{
                 font-size:16px;
@@ -625,6 +704,9 @@ figure.element{
               margin-right:120px;
               min-height:140px;
     	   }
+           .quote-credit{
+                margin-right:120px;
+           }
         }
     	#photoBlocks{
     		padding:0 0 80px;
@@ -689,8 +771,26 @@ figure.element{
 
         .fadeToggle{
             position: relative;
+            width: 100%;
+            background: #222;
+            padding: 10px;
+            font-size: 0;
+            border-radius: 3px;
+            margin-top:20px;
+            .noUi-horizontal{
+                width:80px;
+            }
+            .toggleLabel{
+                margin-left:10px;
+            }
         }
-
+        .title-text-block{
+            &.push-1{
+                margin-left:90px;
+                padding:0;
+                width:520px;
+            }
+        }
         .lead-photo{
             &.push-1{
                 margin-left:80px;
@@ -710,7 +810,7 @@ figure.element{
                 margin-left:80px;
             }
             &.col-4{
-                width:600px;
+                width:620px;
                 padding:0;
             }
             &.col-5{
@@ -721,23 +821,19 @@ figure.element{
     }
     @media(min-width:1140px){
         .quote-container{
+            margin-top:40px;
             quote,.quote-credit{
-                font-size:38px;
+                font-size:34px;
+                margin-right:160px;
             }
             .quote-credit-container{
                 margin-top:20px;
-            }
-            quote{
-                margin-right:160px;
-            }
+            } 
         } 
 
         .block-lead.intro{
             .right-side-container{
                 width:220px;
-            }
-            .lead-text-container{
-                top:65%;
             }
             h1{
                 font-size:24px;
@@ -759,8 +855,15 @@ figure.element{
 
         .title-text-block{
             h1{
-                font-size:58px;
+                // font-size:58px;
             }
+            &.push-1{
+                width:740px;
+                margin-left:120px;
+            }
+        }
+        #p1{
+            margin-top:40px;
         }
         .block-audio{
             .audio-profile-container{
@@ -776,6 +879,13 @@ figure.element{
                 position: absolute;
                 right:0;
                 top:90px;
+            }
+        }
+
+        .fadeToggle{
+            padding:20px;
+            .noUi-horizontal{
+                width:140px;
             }
         }
 
@@ -827,9 +937,9 @@ figure.element{
         #photoBlocks{
             padding:0 0px;
         }
-        .lead-photo{
-            margin: 0 -10px;
-        }
+        // .lead-photo{
+        //     margin: 0 -10px;
+        // }
 
         $i: 8;
         @while $i > 0 {
