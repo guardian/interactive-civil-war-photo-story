@@ -261,12 +261,12 @@ $mainYellow: #ffbb00;
 
 // TAKEN FROM Voter voicess
 .guInteractive#civil-war{
-	.shareButtons button{
-		background-color:rgba(0,0,0,0.5);
-		&:hover{
-			background-color:rgba(0,0,0,1);
-		}
-	}
+	// .shareButtons button{
+	// 	background-color:rgba(0,0,0,0.5);
+	// 	&:hover{
+	// 		background-color:rgba(0,0,0,1);
+	// 	}
+	// }
 	@media(min-width:480px){
 		// .block-lead.intro{
 		// 	h1{

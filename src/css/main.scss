@@ -230,77 +230,6 @@ figure.element{
         }
     }
 
-    // .fadeToggle{
-    //     position: absolute;
-    //     right:0;
-    //     top:0;
-    //     width:60px;
-    //     button{
-    //         height:30px;
-    //         width:60px;
-    //         border-radius:30px;
-    //         background:#575757;
-    //         border:none;
-    //         position: relative;
-    //         outline:none;
-    //         cursor:pointer;
-    //         &:hover{
-    //             span{
-    //                 background-color: $mainYellow;
-    //                 transition:background-color 0.5s;
-    //             }
-    //         }
-    //         span{
-    //             height:100%;
-    //             width:30px;
-    //             position: absolute;
-    //             left:0;
-    //             background:#DBDBDB;
-    //             top:0;
-    //             display:block;
-    //             border-radius:30px;
-    //         }
-    //         &.fadestate-old{
-    //             span{
-    //                 left:0;
-    //             }
-    //         }
-    //         &.fadestate-new{
-    //             span{
-    //                 left:30px;
-    //             }
-    //         }
-
-
-    //         &.toggleClicked-true{
-    //             span{
-    //                 background:#ffbb00;
-    //                 transition:left 0.2s;
-    //             }
-    //         }
-
-            
-            
-    //         @keyframes toRight {
-    //             0% { background-color:#dbdbdb; left:0;}
-    //             20% { background-color:#ffbb00}
-    //             40% {left:0;}
-    //             60% { left:30px; }
-    //             80% { background-color:#ffbb00}
-    //             100% { background-color:#dbdbdb; left:30px;}
-    //         }
-    //         @keyframes toLeft {
-    //             0% { background-color:#dbdbdb; left:30px;}
-    //             20% { background-color:#ffbb00}
-    //             40% {left:30px;}
-    //             60% { left:0; }
-    //             80% { background-color:#ffbb00}
-    //             100% { background-color:#dbdbdb; left:0;}
-    //         }
-            
-    //     }
-        
-    // }
     .fadeToggle{
         position: absolute;
         right:0;
@@ -351,7 +280,7 @@ figure.element{
             display:block;
             font-size:12px;
             font-family:"Guardian Text Sans Web", Arial;
-            margin-top:5px;
+            margin-top:0;
             text-align: center;
             position: relative;
             span{
@@ -359,6 +288,7 @@ figure.element{
                 left:0;
                 text-align: center;
                 display:block;
+                width:100%;
             }
         }
     }
@@ -374,7 +304,7 @@ figure.element{
     ***********************/
 
     .block-photo, .block-audio{
-    	margin:0 0 50px;
+    	margin:40px 0 50px;
         position: relative;
         padding-left:0;
         padding-right:0;
@@ -382,10 +312,9 @@ figure.element{
     .block-audio{
         .audio-profile-container{
             width:80px;
-            position: absolute;
-            top:5px;
-            right:0;
+            float:right;
             height:110px;
+            margin:0 0 10px 10px;
         }
 
         .audio-profile-image{
@@ -442,8 +371,7 @@ figure.element{
         }
         quote{
             min-height:110px;
-            display: inline-block;
-            margin-right:90px;
+            display: inline;
         }
     	quote,.quote-credit{
             color: #767676;
@@ -472,6 +400,28 @@ figure.element{
     		display:block;
     		content:'';
     	}
+    }
+
+    #interactiveCredits{
+        border-top:1px solid #767676;
+        ul{
+            padding:0;
+            margin:10px 0 0;
+            list-style: none;
+
+            li{
+            // padding:0;
+            // margin:0;
+            // list-style: none;
+            line-height:1.2em;
+            margin-bottom:10px;
+            color:#bdbdbd;
+                strong{
+                    display:block;
+                    color:#fff;
+                }
+            }
+        }
     }
 
 
@@ -521,6 +471,18 @@ figure.element{
     	}
         .quote-container{
             margin:20px 0 50px;
+            quote, .quote-credit{
+                display: inline-block;
+                margin-right:100px;
+            }
+        }
+        .block-audio{
+            .audio-profile-container{
+                float:none;
+                position: absolute;
+                right:0;
+                top:5px;
+            }
         }
     }
     @media(min-width:660px){
@@ -742,6 +704,7 @@ figure.element{
             .audio-profile-container{
                 width:100px;
                 height:140px;
+                margin:0 0 10px 10px;
             }
 
             .audio-profile-image{
@@ -818,6 +781,18 @@ figure.element{
                 padding:0;
             }
         }
+        #interactiveCredits{
+            margin:120px 0 0 80px;
+            width:700px;
+            ul li{
+                width:48%;
+                margin-right:2%;
+                float:left;
+            }
+            ul{
+                overflow: hidden;
+            }
+        }
     }
     @media(min-width:1140px){
         .quote-container{
@@ -846,7 +821,7 @@ figure.element{
         }
 
         #photoBlocks{
-            padding:0;
+            padding:0 0 80px;
         }
 
         .block-lead{
@@ -931,11 +906,18 @@ figure.element{
                 width:740px;
             }
         }
+        #interactiveCredits{
+            width:740px;
+            margin-left:120px;
+            ul li{
+                font-size:18px;
+            }
+        }
     }
 
     @media(min-width:1300px){
         #photoBlocks{
-            padding:0 0px;
+            padding:0 0 80px;
         }
         // .lead-photo{
         //     margin: 0 -10px;
@@ -976,6 +958,10 @@ figure.element{
             &.col-5{
                 width:860px;
             }
+        }
+        #interactiveCredits{
+            width:860px;
+            margin-left:160px;
         }
 
     }

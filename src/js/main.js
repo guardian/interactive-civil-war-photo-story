@@ -78,21 +78,20 @@ define([
 
     function loadData(params){
         var key = "1r7dnLeNi9RhDQeB5VWqvskSw4GK7FkO1nUV1rX8XWjM";
-        if(!liveLoad){
-            get('http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json')
-                .then(JSON.parse)
-                .then(function(json){
-                    render(json.sheets.blocks, json.sheets.config)
-                });
-        } else {
-            console.log('tabletop')
-            Tabletop.init({ 
-                key: key,
-                callback: function(data, tabletop) { 
-                    render(data.blocks.elements, data.config.elements)
-                }
+        // if(!liveLoad){
+        get('http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json')
+            .then(JSON.parse)
+            .then(function(json){
+                render(json.sheets.blocks, json.sheets.config)
             });
-        }
+        // } else {
+        //     Tabletop.init({ 
+        //         key: key,
+        //         callback: function(data, tabletop) { 
+        //             render(data.blocks.elements, data.config.elements)
+        //         }
+        //     });
+        // }
         
     }
 
