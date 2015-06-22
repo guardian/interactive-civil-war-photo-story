@@ -78,7 +78,7 @@ define([
 
     function loadData(params){
         var key = "1r7dnLeNi9RhDQeB5VWqvskSw4GK7FkO1nUV1rX8XWjM";
-        liveLoad = true;
+        liveLoad = false;
         if(!liveLoad){
             get('http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json')
                 .then(JSON.parse)

@@ -96,6 +96,11 @@ figure.element{
                 padding: 0;
                 margin: 0;
                 margin-top: 0.5em;
+                text-decoration: underline;
+                transition: color 0.2s;
+                &:hover{
+                    color:#bdbdbd;
+                }
             }
         }
         ul{
@@ -369,6 +374,7 @@ figure.element{
     }
     .quote-container{
     	margin:10px 0 50px;
+        min-height:110px;
         .quote-credit-container{
             margin-top:10px;
             position:relative;
@@ -380,7 +386,6 @@ figure.element{
             }
         }
         quote{
-            min-height:110px;
             display: inline;
         }
     	quote,.quote-credit{
@@ -554,9 +559,6 @@ figure.element{
             max-width:560px;
             margin:0 auto;
         }
-        .title-text-block h2{
-            margin-right:10%;
-        }
     }
     @media(min-width:740px) and (max-width: 979px){
         .lead-text-bar {
@@ -615,7 +617,6 @@ figure.element{
             }
             h2{
                 font-size:22px;
-                margin-right:0;
             }
         }
 
@@ -675,11 +676,11 @@ figure.element{
     		margin:10px 0 40px;
     	}
     	.quote-container {
+            min-height:140px;
             quote{
     		  font-size:32px;
     		  display:block;
               margin-right:120px;
-              min-height:140px;
     	   }
            .quote-credit{
                 margin-right:120px;
@@ -844,9 +845,6 @@ figure.element{
         }
 
         .title-text-block{
-            h2{
-                margin-right:5%; 
-            }
             &.push-1{
                 width:740px;
                 margin-left:120px;
