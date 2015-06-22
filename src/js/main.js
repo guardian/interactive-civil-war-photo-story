@@ -78,20 +78,22 @@ define([
 
     function loadData(params){
         var key = "1r7dnLeNi9RhDQeB5VWqvskSw4GK7FkO1nUV1rX8XWjM";
-        // if(!liveLoad){
-        get('http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json')
-            .then(JSON.parse)
-            .then(function(json){
-                render(json.sheets.blocks, json.sheets.config)
+        liveLoad = false;
+        if(!liveLoad){
+            get('http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json')
+                .then(JSON.parse)
+                .then(function(json){
+                    render(json.sheets.blocks, json.sheets.config)
+                });
+        } else {
+            console.log('tab')
+            Tabletop.init({ 
+                key: key,
+                callback: function(data, tabletop) { 
+                    render(data.blocks.elements, data.config.elements)
+                }
             });
-        // } else {
-        //     Tabletop.init({ 
-        //         key: key,
-        //         callback: function(data, tabletop) { 
-        //             render(data.blocks.elements, data.config.elements)
-        //         }
-        //     });
-        // }
+        }
         
     }
 
@@ -102,7 +104,6 @@ define([
             shareMessage: "Before & After: the American Civil War",
             scrollPosition: 0
         }
-        console.log(data);
         //convert array of params into a single config object
         config.forEach(function(d){
             if(d.param.search('_sizes') > -1){
