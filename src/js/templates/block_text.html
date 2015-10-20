@@ -1,7 +1,10 @@
 <div class="gu-block block-text text-col-{{size}} push-{{offset}}">
 	<div class="text-container">
 		<h4>{{{primarytext}}}</h4>
-		<p>{{{secondarytext}}}</p>
+
+		{{#each secondarytext}}
+			<p>{{{.}}}</p>
+		{{/each}}
 	</div>
 </div>
 {{#if clearafter === "yes"}}

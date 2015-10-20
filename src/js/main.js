@@ -81,14 +81,20 @@ define([
         get('http://interactive.guim.co.uk/docsdata-test/'+key+'.json')
             .then(JSON.parse)
             .then(function(json){
-                console.log(json);
                 render(json.sheets.blocks, json.sheets.config)
             });
     }
 
     function render(blocks, config){
         var data = {
-            blocks: blocks.map(function(block){block.fadeState = ""; block.fadeLevel = 0; return block;}),
+            blocks: blocks.map(function(block){
+                block.fadeState = ""; 
+                block.fadeLevel = 0; 
+                block.secondarytext = block.secondarytext.split('\n').filter(function(i){
+                    return i;
+                }); 
+                return block;
+            }),
             config: {},
             shareMessage: "Before & After: the British coastline",
             scrollPosition: 0
@@ -110,7 +116,6 @@ define([
         })
         data.shareMessage = data.config.sharemessage;
 
-        console.log(data);
 
         base = new AppTemplate({
             el: dom,

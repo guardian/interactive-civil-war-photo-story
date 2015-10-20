@@ -77,6 +77,7 @@ figure.element{
             color:#333;
             span{
                 color:#005689;
+                display:block;
             }
 
         }
@@ -107,6 +108,7 @@ figure.element{
                 }
             }
         }
+
         ul{
             margin:20px 0 0;
             padding-left:0px;
@@ -139,6 +141,30 @@ figure.element{
                 &:hover{
                     color:#ccc;
                     border-color:#ccc;
+                }
+            }
+        }
+    }
+
+    .keyFindingsParagraph{
+        font-weight:bold;
+        ul{
+            padding:0;
+            font-weight:normal;
+            li{
+                list-style:none;
+                margin-bottom:12px;
+                position: relative;
+                &:before{
+                    position: absolute;
+                    top:7px;
+                    left:-16px;
+                    background:#aaa;
+                    display: block;
+                    content: '';
+                    width:8px;
+                    height:8px;
+                    border-radius:8px;
                 }
             }
         }
@@ -188,6 +214,13 @@ figure.element{
             margin-top:15px;
             position: relative;
         }
+        iframe{
+            border:none;
+            width:100%;   
+            height:180px;
+            margin-top:20px;
+        }
+
     }
     .lead-photo{
     	margin:0 -10px;
@@ -314,7 +347,13 @@ figure.element{
     
 
 
-
+    @media(min-width:590px){
+         .block-lead{
+            iframe{
+                height:40px;
+            }
+        }
+    }
 
     /**********************
     *
@@ -418,6 +457,7 @@ figure.element{
             font-family:"Guardian Text Egyptian Web", Georgia, serif;
             a{
                 color:#333;
+                text-decoration: underline;
             }
     	}
     	&:after{
@@ -619,7 +659,7 @@ figure.element{
         }
         .title-text-block{ 
             h1{
-                font-size:68px;
+                font-size:64px;
             }
             h2{
                 font-size:22px;
@@ -666,6 +706,9 @@ figure.element{
     		h2{
     			font-size:18px;
     		}
+            iframe{
+                height:190px;
+            }
     	}
     	.align-{
     		padding-right:10px;
@@ -850,6 +893,9 @@ figure.element{
 
         .block-lead{
             margin-top:160px;
+            iframe{
+                height:105px;
+            }
         }
 
         .title-text-block{
