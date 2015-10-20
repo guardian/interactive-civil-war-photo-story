@@ -74,8 +74,9 @@ figure.element{
             font-size:32px;
             margin-bottom:0.2em;
             margin-top:1em;
+            color:#333;
             span{
-                color:$mainYellow;
+                color:#005689;
             }
 
         }
@@ -95,8 +96,7 @@ figure.element{
             line-height:1.3em;
             color:#767676;
             a{
-                color:#fff;
-                display: block;
+                color:#333;
                 padding: 0;
                 margin: 0;
                 margin-top: 0.5em;
@@ -168,6 +168,7 @@ figure.element{
     		background:rgba(0,0,0,0.1);
     		height:100%;
     		z-index:1;
+            display:none;
     	}
     	h1{
     		margin-bottom:0;
@@ -180,8 +181,8 @@ figure.element{
     		font-size:18px;
     		font-weight:normal;
     		line-height:1.2em;
-    		margin-top:1em;
-    		margin-bottom:15px;
+    		margin-top:0;
+    		margin-bottom:1em;
     	}
         .lead-text-container{
             margin-top:15px;
@@ -210,7 +211,7 @@ figure.element{
         h1 {
             font-size: 24px;
             font-weight: 700;
-            color: #eee;
+            color: #333;
             margin-top:0;
             line-height:1.2em;
         }
@@ -254,7 +255,7 @@ figure.element{
         top:0;
         .noUi-horizontal{
             height:30px;
-            background:#575757;
+            background:#cfcfcf;
             border:none;
             border-radius:30px;
             box-shadow:none;
@@ -266,7 +267,7 @@ figure.element{
                 height:30px;
                 width:30px;
                 border-radius:30px;
-                background: $mainYellow;
+                background: #005689;
                 transition:background 0.2s;
                 border:none;
                 box-shadow:none;
@@ -277,7 +278,7 @@ figure.element{
                     display:none;
                 }
                 &:hover{
-                    background: darken($mainYellow,5%);
+                    background: darken(#005689,5%);
                 }
             }
             &.noUi-extended{
@@ -286,11 +287,11 @@ figure.element{
         }
         &.toggleClicked-{
             .noUi-handle{
-                background:#DBDBDB;
+                background:#888;
             }
             .noUi-state-tap{
                 .noUi-handle{
-                    background:#ffbb00;
+                    background:#005689;
                 }
             }
         }
@@ -357,6 +358,7 @@ figure.element{
     		margin-top:0.4em;
     		max-width:620px;
     		margin-bottom:0;
+            color:#989898;
     	}
     }
     
@@ -412,7 +414,11 @@ figure.element{
     	p{
     		margin:0.5em 0 0;
     		font-size:16px;
-    		line-height:1.3em;
+    		line-height:24px;
+            font-family:"Guardian Text Egyptian Web", Georgia, serif;
+            a{
+                color:#333;
+            }
     	}
     	&:after{
     		clear:both;
@@ -429,15 +435,11 @@ figure.element{
             list-style: none;
 
             li{
-            // padding:0;
-            // margin:0;
-            // list-style: none;
-            line-height:1.2em;
-            margin-bottom:10px;
-            color:#bdbdbd;
+                color:#333;
+                line-height:1.2em;
+                margin-bottom:10px;
                 strong{
                     display:block;
-                    color:#fff;
                 }
             }
         }
@@ -536,7 +538,7 @@ figure.element{
     	}
     	.block-text{
 	    	h4,p{
-	    		font-size:18px;
+	    		font-size:16px;
 	    	}
 	    }
 
@@ -644,7 +646,6 @@ figure.element{
             .lead-text-container{
                 margin-top:1px;
                 height:auto;
-                border-top:1px solid #999;
                 padding-top:5px;
             }
             &:after{
@@ -755,7 +756,7 @@ figure.element{
         .fadeToggle{
             position: relative;
             width: 100%;
-            background: #222;
+            background: #f2f2f2;
             padding: 10px;
             font-size: 0;
             border-radius: 3px;
@@ -769,7 +770,7 @@ figure.element{
         }
         .title-text-block{
             &.push-1{
-                margin-left:90px;
+                margin-left:80px;
                 padding:0;
                 width:520px;
             }
@@ -812,6 +813,9 @@ figure.element{
             ul{
                 overflow: hidden;
             }
+        }
+        .push-1{
+            margin-left:70px;
         }
     }
     @media(min-width:1140px){
@@ -898,11 +902,12 @@ figure.element{
           $i: $i - 1;
         }
 
-        .block-text{
-            h4,p{
-                font-size:20px;
-            }
+        .block-text,.block-photo{
+            
         }
+        .push-1{
+                margin-left:110px;
+            }
         .lead-photo{
             &.push-1{
                 margin-left:120px;
@@ -924,6 +929,11 @@ figure.element{
             }
             &.col-5{
                 width:740px;
+            }
+        }
+        .block-test{
+            &.push-1{
+                margin-left:110px;
             }
         }
         #interactiveCredits{
@@ -958,7 +968,7 @@ figure.element{
         }
         .lead-photo{
             &.push-1{
-                margin-left:160px;
+                margin-left:170px;
             }
             &.col-5{
                 width:860px;
@@ -970,7 +980,7 @@ figure.element{
         }
         .block-audio{
             &.push-1{
-                margin-left:160px;
+                margin-left:170px;
             }
             &.col-4{
                 width:700px;
@@ -982,6 +992,12 @@ figure.element{
         #interactiveCredits{
             width:860px;
             margin-left:170px;
+        }
+
+        .title-text-block{
+            &.push-1{
+                margin-left:170px;
+            }
         }
 
     }
