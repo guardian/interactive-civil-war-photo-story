@@ -77,30 +77,20 @@ define([
     }
 
     function loadData(params){
-        var key = "1r7dnLeNi9RhDQeB5VWqvskSw4GK7FkO1nUV1rX8XWjM";
-        liveLoad = false;
-        if(!liveLoad){
-            get('http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json')
-                .then(JSON.parse)
-                .then(function(json){
-                    render(json.sheets.blocks, json.sheets.config)
-                });
-        } else {
-            Tabletop.init({ 
-                key: key,
-                callback: function(data, tabletop) { 
-                    render(data.blocks.elements, data.config.elements)
-                }
+        var key = "1_TfvV3L-VOOaKmoUvSmXSXd8NsEWZ7w5jqsUdHG7Cog";
+        get('http://interactive.guim.co.uk/docsdata-test/'+key+'.json')
+            .then(JSON.parse)
+            .then(function(json){
+                console.log(json);
+                render(json.sheets.blocks, json.sheets.config)
             });
-        }
-        
     }
 
     function render(blocks, config){
         var data = {
             blocks: blocks.map(function(block){block.fadeState = ""; block.fadeLevel = 0; return block;}),
             config: {},
-            shareMessage: "Before & After: the American Civil War",
+            shareMessage: "Before & After: the British coastline",
             scrollPosition: 0
         }
         //convert array of params into a single config object
@@ -119,6 +109,8 @@ define([
             }
         })
         data.shareMessage = data.config.sharemessage;
+
+        console.log(data);
 
         base = new AppTemplate({
             el: dom,

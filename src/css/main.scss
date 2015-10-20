@@ -802,7 +802,7 @@ figure.element{
             }
         }
         #interactiveCredits{
-            margin:120px 0 0 80px;
+            margin:120px 0 0 130px;
             width:700px;
             ul li{
                 width:48%;
@@ -886,7 +886,10 @@ figure.element{
 
             .text-col-#{$i},.col-#{$i} {
                 padding: 0 10px;
-                width: 130px * $i;
+                width: 140px * $i;
+            }
+            .col-8{
+                // width:1120px;
             }
             .push-#{$i} {
                 margin-left: 130px * $i;
@@ -925,7 +928,7 @@ figure.element{
         }
         #interactiveCredits{
             width:740px;
-            margin-left:120px;
+            margin-left:140px;
             ul li{
                 font-size:18px;
             }
@@ -978,7 +981,7 @@ figure.element{
         }
         #interactiveCredits{
             width:860px;
-            margin-left:160px;
+            margin-left:170px;
         }
 
     }
