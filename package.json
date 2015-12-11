@@ -10,7 +10,7 @@
   "license": "Apache 2.0",
   "config": {
     "port": 9000,
-    "s3_folder": "2015/10/british-coast-line/"
+    "s3_folder": "2015/12/cumbria-flooding-now-then/"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

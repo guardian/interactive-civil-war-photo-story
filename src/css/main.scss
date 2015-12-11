@@ -835,6 +835,9 @@ figure.element{
                 width:780px;
                 padding:0;
             }
+            &.col-4{
+                padding:0;
+            }
         }
         .block-audio{
             &.push-1{
@@ -961,6 +964,9 @@ figure.element{
         .lead-photo{
             &.push-1{
                 margin-left:120px;
+            }
+            &.col-4{
+                padding:0;
             }
             &.col-5{
                 width:740px;

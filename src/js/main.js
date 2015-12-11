@@ -73,12 +73,12 @@ define([
         dom = el;
        // console.log(el, context, config, mediator);
         var params = parseUrl(el);
-        loadData();
+        loadData(params);
     }
 
     function loadData(params){
-        var key = "1_TfvV3L-VOOaKmoUvSmXSXd8NsEWZ7w5jqsUdHG7Cog";
-        get('http://interactive.guim.co.uk/docsdata-test/'+key+'.json')
+        var key = params.key;
+        get('https://interactive.guim.co.uk/docsdata-test/'+key+'.json')
             .then(JSON.parse)
             .then(function(json){
                 render(json.sheets.blocks, json.sheets.config)

@@ -87,7 +87,7 @@ define([ 'promise', 'throttle' ], function ( Promise, throttle ) {
 					imgSize = item.imgSizes[2];
 				}
 			};
-			var path = 'http://' + item.src + '/' + imgSize + '.jpg';
+			var path = 'https://' + item.src + '/' + imgSize + '.jpg';
 			
 			image.onload = function() {
 				item.fulfil(path);
